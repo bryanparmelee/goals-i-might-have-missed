@@ -2,20 +2,17 @@ import { compRegex } from "../../utils/leagueRegex";
 
 import './match.styles.css';
 
-const Match = ({ matchInfo, selectHandler }) => {
+const Match = ({ id, matchInfo, clickHandler }) => {
     
     const { title, competition, date, thumbnail, videos } = matchInfo;
     
-    const id = videos[0].id;
-
     const matchDay = new Date(date).toDateString();
 
     return (
         <div 
-            className="match" 
-            key={id}
-            id={id}
-            onClick={() => selectHandler(id)}
+            className="match"
+            id={id}          
+            onClick={clickHandler}
         >
             <div className="inner-border">
                 <h2>{title.toUpperCase().replace("-", "vs")}</h2>

@@ -8,23 +8,21 @@ const MatchList = ({ matches }) => {
         isOpen: false,
     }))
 
+    const handleClick = (event) => {
+        console.log(event.currentTarget);
+    }
+    
     const matchList = matchesWithIsOpen.map(matchItem => {
         const id = matchItem.videos[0].id;
         return <Match 
                 key={id}
-                matchInfo={matchItem} 
-                // selectHandler={selectHandler}
+                id={id}
+                matchInfo={matchItem}
+                clickHandler={handleClick}                
         />  
     })
 
-    // const selectHandler = (id) => {    
-    //     matchList.map(match => {
-    //         if(id === match.id) {
-    //         console.log(id);
-    //         }
-        
-    //     })
-    // }
+
     return (
         <div className="match-list">
            {matchList}
