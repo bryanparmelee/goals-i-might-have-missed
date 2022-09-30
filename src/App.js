@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+
+
 import MatchList from "./components/match-list/match-list.component";
 
 import { initialLeagueRegex } from "./utils/leagueRegex";
@@ -15,7 +17,6 @@ const App = () => {
     .then(res => res.json())
     .then(data => {
       const sortedLeagues = data.response.filter((val) => val.competition.match(initialLeagueRegex));
-      console.log(sortedLeagues);
       setMatches(sortedLeagues);
     })
     .catch(error => console.log(error))
