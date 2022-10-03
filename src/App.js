@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 
+import Header from "./components/header/header.component";
 import MatchList from "./components/match-list/match-list.component";
 
 import { initialLeagueRegex } from "./utils/leagueRegex";
 
 const App = () => { 
   const [matches, setMatches] = useState([]);
+  const [selectValue, setSelectValue] = useState('all');
 
   const token = process.env.REACT_APP_SCOREBAT_TOKEN;
   const api = `https://www.scorebat.com/video-api/v3/feed/?token=${token}`;
@@ -36,12 +38,17 @@ const App = () => {
     )
 
    
-}
-const closeModal = (event) => {
-  setMatches(
-    matches.map(matchItem => ({...matchItem, isOpen: false}))
-  )
-}
+  }
+
+  const closeModal = (event) => {
+    setMatches(
+      matches.map(matchItem => ({...matchItem, isOpen: false}))
+    )
+  }
+
+  const selectHandler = (event) => {
+    setSelectValue(event.target.value);
+  }
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
@@ -51,6 +58,10 @@ const closeModal = (event) => {
 
   return (
     <div className="app">
+      <Header 
+        selected={selectValue}
+        selectHandler={selectHandler}
+      />
       <MatchList 
         matches={matches}
         clickHandler={handleClick}
