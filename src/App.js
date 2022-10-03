@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-
-
 import MatchList from "./components/match-list/match-list.component";
 
 import { initialLeagueRegex } from "./utils/leagueRegex";
@@ -17,17 +15,47 @@ const App = () => {
     .then(res => res.json())
     .then(data => {
       const sortedLeagues = data.response.filter((val) => val.competition.match(initialLeagueRegex));
-      setMatches(sortedLeagues);
+      const sortedLeaguesWithIsOpen = sortedLeagues.map(matchItem => ({
+        ...matchItem,
+        isOpen: false,
+      }))
+      setMatches(sortedLeaguesWithIsOpen);
     })
     .catch(error => console.log(error))
   }, [])
     
+  const handleClick = (event) => {    
+    let clickedId = event.currentTarget.id;
+    setMatches(
+      matches.map(matchItem => {
+        let vidId = matchItem.videos[0].id;
+        return clickedId === vidId ?
+        {...matchItem, isOpen: true} :
+        matchItem          
+      })
+    )
 
+   
+}
+const closeModal = (event) => {
+  setMatches(
+    matches.map(matchItem => ({...matchItem, isOpen: false}))
+  )
+}
 
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  })
 
   return (
     <div className="app">
-      <MatchList matches={matches}/>
+      <MatchList 
+        matches={matches}
+        clickHandler={handleClick}
+        closeModal={closeModal}
+      />
     </div>
   );
 }

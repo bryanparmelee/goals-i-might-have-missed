@@ -1,31 +1,35 @@
 import Match from '../match/match.component';
+import Video from '../video/video.component';
+
+import { embedRegex } from '../../utils/leagueRegex';
 
 import './match-list.styles.css';
 
-const MatchList = ({ matches }) => {
-        const matchesWithIsOpen = matches.map(match => ({
-        ...match,
-        isOpen: false,
-    }))
-
-    const handleClick = (event) => {
-        console.log(event.currentTarget);
-    }
+const MatchList = ({ matches, clickHandler, closeModal }) => {
+       
     
-    const matchList = matchesWithIsOpen.map(matchItem => {
-        const id = matchItem.videos[0].id;
-        return <Match 
+    
+    const matchList = matches.map(matchItem => {
+        const {id, embed } = matchItem.videos[0];
+        let embedCode = embed.match(embedRegex)
+        return matchItem.isOpen ?   
+            <Video 
+                key={id}
+                embed={embedCode}
+                closeModal={closeModal}
+            /> :
+            <Match 
                 key={id}
                 id={id}
                 matchInfo={matchItem}
-                clickHandler={handleClick}                
+                clickHandler={clickHandler}                
         />  
     })
 
 
     return (
         <div className="match-list">
-           {matchList}
+           {matchList}         
         </div>
     )
 }
