@@ -5,9 +5,12 @@ import MatchList from "./components/match-list/match-list.component";
 
 import { initialLeagueRegex } from "./utils/leagueRegex";
 
+import leagueTypes from "./league.types";
+
 const App = () => { 
   const [matches, setMatches] = useState([]);
   const [selectValue, setSelectValue] = useState('all');
+  const [filteredMatches, setFilteredMatches] = useState(matches)
 
   const token = process.env.REACT_APP_SCOREBAT_TOKEN;
   const api = `https://www.scorebat.com/video-api/v3/feed/?token=${token}`;
@@ -25,6 +28,11 @@ const App = () => {
     })
     .catch(error => console.log(error))
   }, [])
+
+  useEffect(() => {
+    const newFilteredMatches = matches.filter(match => match.competition.includes(leagueTypes[selectValue]));
+    setFilteredMatches(newFilteredMatches); 
+  }, [matches, selectValue])
     
   const handleClick = (event) => {    
     let clickedId = event.currentTarget.id;
@@ -63,7 +71,7 @@ const App = () => {
         selectHandler={selectHandler}
       />
       <MatchList 
-        matches={matches}
+        matches={filteredMatches}
         clickHandler={handleClick}
         closeModal={closeModal}
       />
