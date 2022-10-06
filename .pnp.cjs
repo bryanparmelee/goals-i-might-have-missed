@@ -41,6 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:d1418b47742a85de4cb5bd280e12585b9cb6bbf925506ef80d8d7259439e527fb7132549b61dddb87fad5569755c6c0bcc35662b04fe60b95942aa65b67bd438#npm:18.2.0"],\
             ["react-scripts", "virtual:d1418b47742a85de4cb5bd280e12585b9cb6bbf925506ef80d8d7259439e527fb7132549b61dddb87fad5569755c6c0bcc35662b04fe60b95942aa65b67bd438#npm:5.0.1"],\
+            ["sass", "npm:1.55.0"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
@@ -9164,6 +9165,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:d1418b47742a85de4cb5bd280e12585b9cb6bbf925506ef80d8d7259439e527fb7132549b61dddb87fad5569755c6c0bcc35662b04fe60b95942aa65b67bd438#npm:18.2.0"],\
             ["react-scripts", "virtual:d1418b47742a85de4cb5bd280e12585b9cb6bbf925506ef80d8d7259439e527fb7132549b61dddb87fad5569755c6c0bcc35662b04fe60b95942aa65b67bd438#npm:5.0.1"],\
+            ["sass", "npm:1.55.0"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
@@ -9617,6 +9619,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/immer-npm-9.0.15-6c734225db-92e3d63e81.zip/node_modules/immer/",\
           "packageDependencies": [\
             ["immer", "npm:9.0.15"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["immutable", [\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/immutable-npm-4.1.0-f6635927b8-b9bc1f14fb.zip/node_modules/immutable/",\
+          "packageDependencies": [\
+            ["immutable", "npm:4.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -14862,6 +14873,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/sanitize.css-npm-13.0.0-3424903b5d-a99ca77c4d.zip/node_modules/sanitize.css/",\
           "packageDependencies": [\
             ["sanitize.css", "npm:13.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["sass", [\
+        ["npm:1.55.0", {\
+          "packageLocation": "./.yarn/cache/sass-npm-1.55.0-594c748a96-7d769ed08e.zip/node_modules/sass/",\
+          "packageDependencies": [\
+            ["sass", "npm:1.55.0"],\
+            ["chokidar", "npm:3.5.3"],\
+            ["immutable", "npm:4.1.0"],\
+            ["source-map-js", "npm:1.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\

@@ -1,5 +1,21 @@
-.match,
-.no-match {
+h2 {
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-weight: 300;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.match {
   cursor: pointer;
   position: relative;
   background-color: white;
@@ -21,38 +37,52 @@
     cursor: auto;
 }
 
+.yellow-card {
+  width: 240px;
+}
+
 .match:hover {
     transition: 0.2s;
     transform: scale(1.05);
   }
   
-  .inner-border {
-    border: 1px solid rgba(1, 54, 6, 0.4);
-    position: absolute;
-    width: 97%;
-    height: 97%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    padding: 5px;
-  }
-  
-  .thumb-sq {
-    background-color: gray;
-    /* background-image: url(./IMAGES/thumb2.jpg); */
-    background-size: cover;
+.inner-border {
+  border: 1px solid rgba(1, 54, 6, 0.4);
+  position: absolute;
+  width: 97%;
+  height: 97%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+}
+
+.thumb-sq {
+  background-color: gray;
+  /* background-image: url(./IMAGES/thumb2.jpg); */
+  background-size: cover;
+  width: 240px;
+  height: 125px;
+  position: relative;
+}
+
+.thumb {
+  max-width: 100%;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+@media screen and (max-width: 480px) {
+  .match {
     width: 240px;
-    height: 125px;
-    position: relative;
   }
-  
-  .thumb {
-    max-width: 100%;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
+  .thumb-sq {
+    width: 200px;
+    height: 98px;
   }
+}

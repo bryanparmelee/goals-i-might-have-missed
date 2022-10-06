@@ -7,9 +7,7 @@
   --select-arrow: var(--select-border);
 }
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,4 +17,17 @@ body {
   font-family: "Barlow Semi Condensed", sans-serif;
   background-color: black;
 }
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./assets/grass-bg.jpg);
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+
 

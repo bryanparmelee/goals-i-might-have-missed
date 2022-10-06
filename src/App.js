@@ -6,6 +6,9 @@ import MatchList from "./components/match-list/match-list.component";
 import { initialLeagueRegex } from "./utils/leagueRegex";
 
 import leagueTypes from "./league.types";
+import NoMatch from "./components/match/no-match.component";
+
+import './App.css';
 
 const App = () => { 
   const [matches, setMatches] = useState([]);
@@ -30,7 +33,9 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    const newFilteredMatches = matches.filter(match => match.competition.includes(leagueTypes[selectValue]));
+    const newFilteredMatches = matches.filter(match => 
+      match.competition.includes(leagueTypes[selectValue])
+    );
     setFilteredMatches(newFilteredMatches); 
   }, [matches, selectValue])
     
@@ -43,12 +48,10 @@ const App = () => {
         {...matchItem, isOpen: true} :
         matchItem          
       })
-    )
-
-   
+    ) 
   }
 
-  const closeModal = (event) => {
+  const closeModal = () => {
     setMatches(
       matches.map(matchItem => ({...matchItem, isOpen: false}))
     )
@@ -65,16 +68,20 @@ const App = () => {
   })
 
   return (
-    <div className="app">
-      <Header 
-        selected={selectValue}
-        selectHandler={selectHandler}
-      />
-      <MatchList 
-        matches={filteredMatches}
-        clickHandler={handleClick}
-        closeModal={closeModal}
-      />
+    <div className="app">    
+        <Header 
+          selected={selectValue}
+          selectHandler={selectHandler}
+        />
+       
+          {!filteredMatches.length ? 
+          <NoMatch /> :      
+          <MatchList        
+            matches={filteredMatches}
+            clickHandler={handleClick}
+            closeModal={closeModal}
+          />}
+    
     </div>
   );
 }

@@ -1,5 +1,3 @@
-import './video.styles.css';
-
 const Video = ({embed, closeModal }) => {
     
     return (

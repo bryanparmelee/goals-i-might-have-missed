@@ -1,8 +1,17 @@
 .match-list { 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 940px) {
+  .match-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .match-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
