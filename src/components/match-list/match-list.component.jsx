@@ -12,12 +12,12 @@ const MatchList = ({ matches, clickHandler, closeModal }) => {
     const matchList = matches.map(matchItem => {
         const {id, embed } = matchItem.videos[0];
         console.log(embed);
-        let embedCode = embed.match(embedRegex);
-        console.log(embedCode);
+        const embedCode = embed.match(embedRegex);
+        console.log(embedCode[0]);
         return matchItem.isOpen ?   
             <Video 
                 key={id}
-                embed={embedCode}
+                embed={embedCode[0]}
                 closeModal={closeModal}
             /> :
             <Match 
