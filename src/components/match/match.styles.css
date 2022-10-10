@@ -61,7 +61,7 @@ h4 {
 
 .thumb-sq {
   background-color: gray;
-  /* background-image: url(./IMAGES/thumb2.jpg); */
+  background-image: url(../../assets/thumb2.jpg);
   background-size: cover;
   width: 240px;
   height: 125px;

@@ -23,7 +23,7 @@ const Match = ({ id, matchInfo, clickHandler }) => {
                 <div className="thumb-sq">
                     <img 
                         className="thumb"
-                        alt={title}
+                        alt=''
                         src={thumbnail}
                     />
                 </div>
