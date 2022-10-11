@@ -34,7 +34,8 @@ h4 {
 }
 
 .no-match {
-    cursor: auto;
+  margin-top: 120px;
+  cursor: auto;
 }
 
 .yellow-card {
